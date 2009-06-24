@@ -1,0 +1,10 @@
+#summary Compatibility with SQLite implementation.
+#labels Phase-Design,Featured
+
+= File Format =
+
+SQLJet is fully compatible with native implementation on database file format level. Files created by SQLJet may be read by SQLite and vice versa.
+
+= Concurrency =
+
+SQLJet supports 'multithreaded' mode of SQLite.
