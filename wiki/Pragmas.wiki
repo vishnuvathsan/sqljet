@@ -1,0 +1,7 @@
+#summary Supported database options.
+#labels Phase-Design,Featured
+
+= Introduction =
+SQLite defines a pragma statement to query database options and alter its behaviour. Full description is available at http://www.sqlite.org/pragma.html page. SQLJet supports a subset of these options via typed and statement API.
+
+= Details =
