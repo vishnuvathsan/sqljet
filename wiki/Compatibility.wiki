@@ -5,6 +5,8 @@
 
 SQLJet is fully compatible with native implementation on database file format level. Files created by SQLJet may be read by SQLite and vice versa.
 
+TODO: do we support 'pragma legacy_file_format'?
+
 = Concurrency =
 
 SQLJet supports 'multithreaded' mode of SQLite.
