@@ -2,11 +2,14 @@
 #labels Phase-Design,Featured
 
 = File Format =
-
 SQLJet is fully compatible with native implementation on database file format level. Files created by SQLJet may be read by SQLite and vice versa.
 
 TODO: do we support 'pragma legacy_file_format'?
 
-= Concurrency =
+= File Locks =
+Database file lock is obtained for each read and write transaction which corresponds to 'pragma locking_mode=normal'.
 
+TODO: do we support 'pragma locking_mode=exclusive'?
+
+= Concurrency =
 SQLJet supports 'multithreaded' mode of SQLite.
