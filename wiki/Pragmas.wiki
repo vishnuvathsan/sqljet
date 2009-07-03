@@ -10,8 +10,8 @@ Typed API can be accessed using SqlJetDb.getOptions(). It returns an ISqlJetOpti
 Method SqlJetDb.pragma(String) allows to execute individual pragma statements and is fully compatible with SQLite syntax. Internally this method delegates to the typed API.
 
 Currently supported pragmas include:
-* auto_vacuum
-* cache_size
-* encoding
-* schema_version
-* user_version
+ * auto_vacuum
+ * cache_size
+ * encoding
+ * schema_version
+ * user_version
