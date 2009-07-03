@@ -29,6 +29,8 @@ Other pragmas have no these restrictions and should be called in active transact
  * schema_version
  * user_version
 
+=Interface=
+
 {{{
 
 public interface ISqlJetOptions {
