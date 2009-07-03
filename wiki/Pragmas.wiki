@@ -2,6 +2,16 @@
 #labels Phase-Design,Featured
 
 = Introduction =
-SQLite defines a pragma statement to query database options and alter its behaviour. Full description is available at http://www.sqlite.org/pragma.html page. SQLJet supports a subset of these options via typed and statement API.
+SQLite defines a pragma statement to query database options and alter its behaviour. Full description is available at http://www.sqlite.org/pragma.html page. SQLJet supports a subset of these options via typed and statement APIs.
 
 = Details =
+Typed API can be accessed using SqlJetDb.getOptions(). It returns an ISqlJetOptions implementation that has methods to query and alter individual options that correspond to SQLite pragmas.
+
+Method SqlJetDb.pragma(String) allows to execute individual pragma statements and is fully compatible with SQLite syntax. Internally this method delegates to the typed API.
+
+Currently supported pragmas include:
+- auto_vacuum
+- cache_size
+- encoding
+- schema_version
+- user_version
