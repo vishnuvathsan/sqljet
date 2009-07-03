@@ -18,13 +18,13 @@ Currently supported pragmas include:
 
 There is one important thing: some pragmas can be changed only in new empty database and only without active transaction. Other pragmas contrariwise should be called in active transaction.
 
-Pragmas which allowed changed only in new empty database and without transaction are:
+Pragmas which allowed to be changed only in new empty database and without transaction are:
  * auto_vacuum
  * encoding
 
-This restriction is related with file format and changes of this pragmas in non empty database could damage database. And changes of this pragmas must be immediately committed to database (it performs automatically), therefore it should be never called in active transaction because this active transaction will be committed unwittingly (and other backside effects is possible).
+This restriction is related to the file format and changes of this pragmas in non empty database could damage database. And changes of this pragmas must be immediately committed to database (it performs automatically), therefore it should be never called in active transaction because this active transaction will be committed unwittingly (and other backside effects are possible).
 
-Other pragmas haven't these restrictions and should be called in active transaction. These pragmas are:
+Other pragmas have no these restrictions and should be called in active transaction. These pragmas are:
  * cache_size
  * schema_version
  * user_version
