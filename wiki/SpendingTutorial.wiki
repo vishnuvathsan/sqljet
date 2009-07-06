@@ -1,4 +1,5 @@
 #summary Sample application that shows how to use SqlJet.
+#labels Tutorial
 
 = Introduction =
 
@@ -7,10 +8,10 @@
 = Schema =
 
 Each payment is composed of the following attributes:
- - *date* Date when money were spent or received.
- - *amount* Amount of received money; if this number is negative then money were spent.
- - *currency* Payment currency; three letters.
- - *info* What was bought or where the money came from.
+ * *date* Date when money were spent or received.
+ * *amount* Amount of received money; if this number is negative then money were spent.
+ * *currency* Payment currency; three letters.
+ * *info* What was bought or where the money came from.
 
 Class 'Payment' represents a payment and has method 'read()' to extract payment attributes from a database cursor:
 
