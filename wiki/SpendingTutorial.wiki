@@ -5,7 +5,7 @@
 
 'Spending' is a simple application to manage personal expenses. It's based on a list of payments that user can browse and modify. All payments are stored in 'spending.db' database, in the 'payments' table.
 
-http://code.google.com/p/sqljet/source/browse/wiki/Spending.png
+http://code.google.com/p/sqljet/source/browse/trunk/images/Spending.png
 
 = Schema =
 
