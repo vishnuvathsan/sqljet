@@ -16,6 +16,7 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import org.tmatesoft.sqljet.core.SqlJetException;
@@ -46,7 +47,9 @@ public class SpendingDB {
 					db
 							.getSchema()
 							.createTable(
-									"create table payments (date text, amount int, currency text, info text)");
+									"create table payments (date text not null, amount int not null, currency text, info text)");
+					db.getSchema().createIndex(
+							"create index payments_date on payments (date)");
 					prefillDB();
 					return null;
 				}
@@ -61,6 +64,11 @@ public class SpendingDB {
 
 	public static ISqlJetCursor getAllPayments() throws SqlJetException {
 		return db.getTable("payments").open();
+	}
+
+	public static ISqlJetCursor getPayments(Date date) throws SqlJetException {
+		String dateString = getDateFormat().format(date);
+		return db.getTable("payments").lookup("payments_date", dateString);
 	}
 
 	public static Payment getPayment(long rowid) throws SqlJetException {

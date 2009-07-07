@@ -13,6 +13,7 @@
 package spending.ui;
 
 import java.text.DateFormat;
+import java.util.Date;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusEvent;
@@ -23,6 +24,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
@@ -47,9 +49,10 @@ public class PaymentsController {
 	private ToolItem removeItem;
 	private Text infoText;
 	private boolean infoChanged;
+	private boolean showForToday;
 
 	public void createView(Composite parent) {
-		parent.setLayout(new GridLayout());
+		parent.setLayout(new GridLayout(2, false));
 
 		ToolBar toolBar = new ToolBar(parent, SWT.HORIZONTAL);
 		toolBar.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -73,8 +76,22 @@ public class PaymentsController {
 		});
 		removeItem.setEnabled(false);
 
+		Button todayItem = new Button(parent, SWT.CHECK);
+		todayItem.setLayoutData(new GridData());
+		todayItem.setText("Today");
+		todayItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				showForToday = ((Button) e.widget).getSelection();
+				refresh();
+			}
+		});
+
 		table = new Table(parent, SWT.BORDER | SWT.SINGLE);
-		table.setLayoutData(new GridData(GridData.FILL_BOTH));
+		GridData tableData = new GridData(GridData.FILL_BOTH);
+		tableData.horizontalSpan = 2;
+		table.setLayoutData(tableData);
 		TableColumn dateCol = new TableColumn(table, SWT.LEFT);
 		dateCol.setText("Date");
 		TableColumn amountCol = new TableColumn(table, SWT.RIGHT);
@@ -93,13 +110,16 @@ public class PaymentsController {
 		});
 
 		Label infoLabel = new Label(parent, SWT.NONE);
-		infoLabel.setLayoutData(new GridData());
+		GridData infoLabelData = new GridData();
+		infoLabelData.horizontalSpan = 2;
+		infoLabel.setLayoutData(infoLabelData);
 		infoLabel.setText("Info:");
 
 		infoText = new Text(parent, SWT.BORDER | SWT.MULTI | SWT.WRAP);
 		GridData infoData = new GridData(GridData.FILL_HORIZONTAL);
 		int fontHeight = parent.getFont().getFontData()[0].getHeight();
 		infoData.heightHint = fontHeight * 5;
+		infoData.horizontalSpan = 2;
 		infoText.setLayoutData(infoData);
 		infoText.addModifyListener(new ModifyListener() {
 
@@ -128,7 +148,8 @@ public class PaymentsController {
 	public void refresh() {
 		table.removeAll();
 		try {
-			ISqlJetCursor cursor = SpendingDB.getAllPayments();
+			ISqlJetCursor cursor = showForToday ? SpendingDB
+					.getPayments(new Date()) : SpendingDB.getAllPayments();
 			try {
 				DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 				while (!cursor.eof()) {
