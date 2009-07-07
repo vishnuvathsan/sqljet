@@ -9,7 +9,7 @@ http://sqljet.googlecode.com/svn/trunk/images/Spending.png
 
 = Schema =
 
-Each payment is composed of the following attributes:
+Each payment is composed from the following attributes:
  * *date* Date when money were spent or received.
  * *amount* Amount of received money; if this number is negative then money were spent.
  * *currency* Payment currency; three letters.
