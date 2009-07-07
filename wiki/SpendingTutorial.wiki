@@ -72,8 +72,10 @@ public class SpendingDB {
 			db.runWriteTransaction(new ISqlJetTransaction() {
 
 				public Object run(SqlJetDb arg0) throws SqlJetException {
-					db.getSchema().createTable("create table payments (date text not null, amount int not null, currency text, info text)");
-					db.getSchema().createIndex("create index payments_date on payments (date)");
+					db.getSchema().createTable(
+"create table payments (date text not null, amount int not null, currency text, info text)");
+					db.getSchema().createIndex(
+"create index payments_date on payments (date)");
 					prefillDB();
 					return null;
 				}
@@ -108,14 +110,18 @@ Other methods in 'SpendingDB' class allow to select payments and modify them. To
 	}
 }}}
 
-Method `lookup(indexName, values)` makes it possible to select records using index. 
+Method `lookup(indexName, values)` makes it possible to select records using index. The second argument - values - is a key for the search. We use 'payments_date' index where the key is the payment date.
 
 {{{
 	public static ISqlJetCursor getPayments(Date date) throws SqlJetException {
 		String dateString = getDateFormat().format(date);
 		return db.getTable("payments").lookup("payments_date", dateString);
 	}
+}}}
 
+Every record within a table has an implicit 'rowid' attribute that is a unique number associated with the record. You can get it from a cursor for the current record using `getRowId()` method. Here we provide a method to access a particular payment by its 'rowid'.
+
+{{{
 	public static Payment getPayment(long rowid) throws SqlJetException {
 		ISqlJetCursor cursor = db.getTable("payments").open();
 		try {
@@ -129,7 +135,11 @@ Method `lookup(indexName, values)` makes it possible to select records using ind
 		}
 		return null;
 	}
+}}}
 
+Record may be added to a table using its `insert(values)` method that accepts a list of all field values. In order to update or remove a record we first position a cursor over the particular record by using its 'rowid' and then calling `update(values)` ot `delete()`.
+
+{{{
 	public static long addPayment(final Payment p) throws SqlJetException {
 		return (Long) db.runWriteTransaction(new ISqlJetTransaction() {
 
@@ -177,3 +187,10 @@ Method `lookup(indexName, values)` makes it possible to select records using ind
 		});
 	}
 }}}
+
+Note that all methods that modify database do it within write transaction. There are two ways to do it:
+ * call `beginTransaction()`, `commit()` and `rollback()` methods of 'SqlJetDB' class
+ * wrap modifications within `runTransaction(op, mode)` or `runWriteTransaction(op)`
+The first approach is more flexible while the second is simpler and will be appropriate in most cases.
+
+= User Interface =
