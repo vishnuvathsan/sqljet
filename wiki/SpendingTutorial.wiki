@@ -52,7 +52,7 @@ public class Payment {
 }
 }}}
 
-Table 'payments' keeps these records.
+Record values may also be read by field indexes but using field names is preferred solution - this makes application more tolerant to changes in schema. Table 'payments' keeps these records.
 
 Class 'SpendingDB' encapsulates connection to the 'spending.db' file. Call `open()` to establish connection when application is launched and `close()` before exit. Note that we open database for writing and if the 'payments' table does not exists then we create it. This happens when application is launched for the first time and there is no database yet so we have to recreate all the schema. Another approach for more complex applications is to version schema with numbers and store schema version in 'user version' option. It can be accessed as `SqlJetDB.getOptions().[get|set]UserVersion()` methods.
 
