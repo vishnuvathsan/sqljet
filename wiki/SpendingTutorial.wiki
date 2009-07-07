@@ -139,7 +139,7 @@ Every record within a table has an implicit 'rowid' attribute that is a unique n
 	}
 }}}
 
-Record may be added to a table using its `insert(values)` method that accepts a list of all field values. In order to update or remove a record we first position a cursor over the particular record by using its 'rowid' and then calling `update(values)` ot `delete()`.
+Record may be added to a table using its `insert(values)` method that accepts a list of all field values. In order to update or remove a record we first position a cursor over the particular record by using its 'rowid' and then calling `update(values)` or `delete()`.
 
 {{{
 	public static long addPayment(final Payment p) throws SqlJetException {
