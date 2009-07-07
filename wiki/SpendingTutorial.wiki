@@ -15,7 +15,7 @@ Each payment is composed of the following attributes:
  * *currency* Payment currency; three letters.
  * *info* What was bought or where the money came from.
 
-Class 'Payment' represents a payment and has method 'read()' to extract payment attributes from a database cursor:
+Class 'Payment' represents a payment and has method `read()` to extract payment attributes from a database cursor:
 
 {{{
 public class Payment {
