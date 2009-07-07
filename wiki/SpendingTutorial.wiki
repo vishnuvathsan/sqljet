@@ -198,3 +198,74 @@ Note that all methods that modify database do it within write transaction. There
 The first approach is more flexible while the second is simpler and will be appropriate in most cases.
 
 = User Interface =
+
+Class 'SpendingApp' declares the `main(args)` method that establishes connection with database and shows application window.
+
+{{{
+public class SpendingApp {
+
+	public static void main(String[] args) {
+		try {
+			SpendingDB.open();
+		} catch (SqlJetException e) {
+			e.printStackTrace();
+			return;
+		}
+		Display display = new Display();
+		Shell shell = new Shell(display);
+		shell.setText("Spending");
+		PaymentsController pc = new PaymentsController();
+		pc.createView(shell);
+		shell.setSize(400, 400);
+		shell.open();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		display.dispose();
+		try {
+			SpendingDB.close();
+		} catch (SqlJetException e) {
+			e.printStackTrace();
+		}
+	}
+}
+}}}
+
+Class 'PaymentsController' creates all UI controls to browse and edit payments. You may check the source code to see all the details. For example `refresh()` method is used to update list of payments:
+
+{{{
+	public void refresh() {
+		table.removeAll();
+		try {
+			ISqlJetCursor cursor = showForToday ? SpendingDB
+					.getPayments(new Date()) : SpendingDB.getAllPayments();
+			try {
+				DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
+				while (!cursor.eof()) {
+					Payment p = new Payment();
+					p.read(cursor);
+					TableItem item = new TableItem(table, 0);
+					item.setText(new String[] { df.format(p.date),
+							String.valueOf(p.amount),
+							p.currency == null ? "" : p.currency });
+					item.setData("rowid", cursor.getRowId());
+					item.setData("payment", p);
+					cursor.next();
+				}
+			} finally {
+				cursor.close();
+			}
+		} catch (SqlJetException e) {
+			e.printStackTrace();
+		}
+		for (TableColumn col : table.getColumns()) {
+			col.pack();
+		}
+	}
+}}}
+
+When user clicks on 'Add' button 'AddPaymentDialog' is used to collect 'amount' and 'currency' values.
+
+http://sqljet.googlecode.com/svn/trunk/images/AddPayment.png
