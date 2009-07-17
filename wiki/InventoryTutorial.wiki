@@ -4,5 +4,19 @@
 = Introduction =
 
 Inventory is a simple warehouse management application. It keeps a list of items with descriptions and their locations (room + shelf). Application runs as a web server so you can connect to it using any web browser:
+
 http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory1.png
+
+The link 'Add Item' below the items list allows to add a new item:
+
+http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory2.png
+
+Form values are sent to server in query string for simplicity:
+
+http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory3.png
+
+Links 'Edit' and 'Remove' allow to edit and delete a particular item:
+
+http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory5.png
+
 You can access the source code here: http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/inventory/
