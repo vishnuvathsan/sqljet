@@ -19,4 +19,22 @@ Links 'Edit' and 'Remove' allow to edit and delete a particular item:
 
 http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory5.png
 
+All requests are logged to console. You may stop the server by typing any text and pressing 'Return'. Here is the log of the above session:
+
+{{{
+Inventory is listening at http://127.0.0.1:8333
+Enter any text to shutdown.
+GET / HTTP/1.1
+GET /add_item HTTP/1.1
+GET /add_item?name=Dictionary&description=The+big+one&room=3&shelf=55 HTTP/1.1
+GET / HTTP/1.1
+GET /edit_item?article=3 HTTP/1.1
+GET /edit_item?name=Cup&description=My+best&room=3&shelf=1&article=3 HTTP/1.1
+GET / HTTP/1.1
+GET /remove_item?article=3 HTTP/1.1
+GET / HTTP/1.1
+
+Exit.
+}}}
+
 You can access the source code here: http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/inventory/
