@@ -46,3 +46,92 @@ GET / HTTP/1.1
 
 Exit.
 </pre>
+
+= Schema Version 1 =
+
+Class InventoryDB encapsulates connection to the database and provides convenient accessor methods:
+
+{{{
+public class InventoryDB {
+
+	public static final int VERSION = 1;
+
+	private static final String FILE_NAME = "inventory.db";
+
+	private SqlJetDb db;
+
+	public InventoryDB() throws SqlJetException {
+		db = SqlJetDb.open(new File(FILE_NAME), true);
+		upgrade(VERSION);
+	}
+
+	public void close() throws SqlJetException {
+		db.close();
+		db = null;
+	}
+
+	public int getVersion() throws SqlJetException {
+		return db.getOptions().getUserVersion();
+	}
+
+	private void upgrade(int targetVersion) throws SqlJetException {
+		if (targetVersion < 1) {
+			return;
+		}
+		if (getVersion() < 1) {
+			db.runWriteTransaction(new ISqlJetTransaction() {
+
+				public Object run(SqlJetDb db) throws SqlJetException {
+					db.getSchema().createTable(
+							"create table items (article integer primary key, name text not null, description blob, "
+									+ "room int, shelf int, borrowed_from text, borrowed_to text)");
+					db.getSchema().createIndex("create index items_name on items (name asc)");
+					db.getSchema().createIndex("create index items_location on items (room, shelf)");
+					db.getOptions().setUserVersion(1);
+					prefillItems();
+					return null;
+				}
+			});
+		}
+		if (targetVersion < 2) {
+			return;
+		}
+		if (getVersion() < 2) {
+			// ...
+		}
+		if (targetVersion > 2) {
+			throw new IllegalArgumentException("Unsupported version: " + targetVersion);
+		}
+	}
+
+	private void prefillItems() throws SqlJetException {
+		addItem(new InventoryItem(-1, "MacBook", "Unibody 2GHz", 7, 23, "Dmitry Stadnik", null));
+		addItem(new InventoryItem(-1, "iPhone 3G", "8Mb", 7, 24, "Dmitry Stadnik", null));
+		addItem(new InventoryItem(-1, "Cup", "Big & White", 3, 1, null, "MG"));
+	}
+
+	// Items
+
+	public ISqlJetCursor getAllItems() throws SqlJetException {
+		return db.getTable("items").open();
+	}
+
+	public InventoryItem getItem(long article) throws SqlJetException {
+		// ...
+	}
+
+	public long addItem(final InventoryItem item) throws SqlJetException {
+		// ...
+	}
+
+	public void updateItem(final long article, final Map<String, Object> values) throws SqlJetException {
+		// ...
+	}
+
+	public void removeItem(final long article) throws SqlJetException {
+		// ...
+	}
+}
+}}}
+
+Note how user_version option is used: its initial value is 0 and upgrade() method increments it along with changing the schema to be consistent with the version number.
