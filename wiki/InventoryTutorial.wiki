@@ -23,7 +23,6 @@ All requests are logged to console. You may stop the server by typing any text a
 
 <pre>
 Inventory is listening at http://127.0.0.1:8333
-
 Enter any text to shutdown.
 GET / HTTP/1.1
 GET /add_item HTTP/1.1
