@@ -1,0 +1,8 @@
+#summary More complicated tutorial using Inventory application.
+#labels Tutorial
+
+= Introduction =
+
+Inventory is a simple warehouse management application. It keeps a list of items with descriptions and their locations (room + shelf). Application runs as a web server so you can connect to it using any web browser:
+
+http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory1.png
