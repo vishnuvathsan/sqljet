@@ -3,7 +3,17 @@
 
 = Introduction =
 
-Inventory is a simple warehouse management application. It keeps a list of items with descriptions and their locations (room + shelf). Application runs as a web server so you can connect to it using any web browser:
+Inventory is a simple warehouse management application. It keeps a list of items and their locations (room + shelf).
+
+You can access the source code here: http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/inventory/
+
+Application runs as a web server so you can connect to it using any web browser. Server is multithreaded and each request is processed in its own worker thread. Each thread opens a connection to the inventory.db database if necessary so there may be several connections open at the same time.
+
+There are two versions of the application: the first one allows to edit a list of items and the second one adds a list of users that may borrow items. You may change the version using InventoryDB.VERSION constant. When connection to the database is opened InventoryDB checks the current version and upgrades the schema if necessary.
+
+= UI Version 1 =
+
+Initially a list of items is displayed:
 
 http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory1.png
 
@@ -36,5 +46,3 @@ GET / HTTP/1.1
 
 Exit.
 </pre>
-
-You can access the source code here: http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/inventory/
