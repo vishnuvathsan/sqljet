@@ -11,23 +11,15 @@ Application runs as a web server so you can connect to it using any web browser.
 
 There are two versions of the application: the first one allows to edit a list of items and the second one adds a list of users that may borrow items. You may change the version using InventoryDB.VERSION constant. When connection to the database is opened InventoryDB checks the current version and upgrades the schema if necessary.
 
-= UI Version 1 =
+= Version 1 =
 
 Initially a list of items is displayed:
 
-http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory1.png
+http://sqljet.googlecode.com/svn/trunk/images/inventory/list-v1.png
 
-The link 'Add Item' below the items list allows to add a new item:
+Form values are sent to server in query string:
 
-http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory2.png
-
-Form values are sent to server in query string for simplicity:
-
-http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory3.png
-
-Links 'Edit' and 'Remove' allow to edit and delete a particular item:
-
-http://sqljet.googlecode.com/svn/trunk/images/inventory/Inventory5.png
+http://sqljet.googlecode.com/svn/trunk/images/inventory/add-v1.png
 
 All requests are logged to console. You may stop the server by typing any text and pressing 'Return'. Here is the log of the above session:
 
@@ -35,29 +27,37 @@ All requests are logged to console. You may stop the server by typing any text a
 Inventory is listening at http://127.0.0.1:8333
 Enter any text to shutdown.
 GET / HTTP/1.1
+GET /favicon.ico HTTP/1.1
 GET /add_item HTTP/1.1
-GET /add_item?name=Dictionary&description=The+big+one&room=3&shelf=55 HTTP/1.1
+GET /add_item?name=Clippers&description=&room=10&shelf=20 HTTP/1.1
 GET / HTTP/1.1
-GET /edit_item?article=3 HTTP/1.1
-GET /edit_item?name=Cup&description=My+best&room=3&shelf=1&article=3 HTTP/1.1
+GET /edit_item?article=1 HTTP/1.1
+GET /edit_item?name=MacBook+Pro&description=Unibody+2GHz&room=7&shelf=23&article=1 HTTP/1.1
 GET / HTTP/1.1
-GET /remove_item?article=3 HTTP/1.1
-GET / HTTP/1.1
+GET /?room=7&shelf=23 HTTP/1.1
 
 Exit.
 </pre>
 
-= Schema Version 1 =
+= Version 2 =
+
+List of items now has borrowers:
+
+http://sqljet.googlecode.com/svn/trunk/images/inventory/list-v2.png
+
+And we can see all users:
+
+http://sqljet.googlecode.com/svn/trunk/images/inventory/users-v2.png
+
+= Schema =
 
 Class InventoryDB encapsulates connection to the database and provides convenient accessor methods:
 
 {{{
 public class InventoryDB {
 
-	public static final int VERSION = 1;
-
+	private static final int VERSION = 1;
 	private static final String FILE_NAME = "inventory.db";
-
 	private SqlJetDb db;
 
 	public InventoryDB() throws SqlJetException {
@@ -82,11 +82,11 @@ public class InventoryDB {
 			db.runWriteTransaction(new ISqlJetTransaction() {
 
 				public Object run(SqlJetDb db) throws SqlJetException {
-					db.getSchema().createTable(
-							"create table items (article integer primary key, name text not null, description blob, "
-									+ "room int, shelf int, borrowed_from text, borrowed_to text)");
-					db.getSchema().createIndex("create index items_name on items (name asc)");
-					db.getSchema().createIndex("create index items_location on items (room, shelf)");
+					db.createTable("create table items (article integer primary key, name text not null, description blob, "
+							+ "room int, shelf int, borrowed_from text, borrowed_to text)");
+					db.createIndex("create index items_name on items (name asc)");
+					db.createIndex("create index items_name_rev on items (name desc)");
+					db.createIndex("create index items_location on items (room, shelf)");
 					db.getOptions().setUserVersion(1);
 					prefillItems();
 					return null;
@@ -97,7 +97,15 @@ public class InventoryDB {
 			return;
 		}
 		if (getVersion() < 2) {
-			// ...
+			db.runWriteTransaction(new ISqlJetTransaction() {
+
+				public Object run(SqlJetDb db) throws SqlJetException {
+					db.createTable("create table users (name text primary key, info text, rating real)");
+					db.getOptions().setUserVersion(2);
+					prefillUsers();
+					return null;
+				}
+			});
 		}
 		if (targetVersion > 2) {
 			throw new IllegalArgumentException("Unsupported version: " + targetVersion);
@@ -110,27 +118,29 @@ public class InventoryDB {
 		addItem(new InventoryItem(-1, "Cup", "Big & White", 3, 1, null, "MG"));
 	}
 
+	private void prefillUsers() throws SqlJetException {
+		addUser(new InventoryUser("Dmitry Stadnik", "Prague", 0.99));
+		addUser(new InventoryUser("James Bond", "Classified", 0));
+		addUser(new InventoryUser("MG", null, 0.11));
+	}
+
 	// Items
 
-	public ISqlJetCursor getAllItems() throws SqlJetException {
-		return db.getTable("items").open();
-	}
+	public ISqlJetCursor getAllItems() throws SqlJetException {...}
+	public ISqlJetCursor getAllItemsInRoomOnShelf(long room, long shelf) throws SqlJetException {...}
+	public ISqlJetCursor getAllItemsSortedByName(boolean asc) throws SqlJetException {...}
+	public InventoryItem getItem(long article) throws SqlJetException {...}
+	public long addItem(final InventoryItem item) throws SqlJetException {...}
+	public void updateItem(final long article, final Map<String, Object> values) throws SqlJetException {...}
+	public void removeItem(final long article) throws SqlJetException {...}
 
-	public InventoryItem getItem(long article) throws SqlJetException {
-		// ...
-	}
+	// Users
 
-	public long addItem(final InventoryItem item) throws SqlJetException {
-		// ...
-	}
-
-	public void updateItem(final long article, final Map<String, Object> values) throws SqlJetException {
-		// ...
-	}
-
-	public void removeItem(final long article) throws SqlJetException {
-		// ...
-	}
+	public ISqlJetCursor getAllUsers() throws SqlJetException {...}
+	public InventoryUser getUser(String name) throws SqlJetException {...}
+	public void addUser(final InventoryUser user) throws SqlJetException {...}
+	public void updateUser(final String name, final Map<String, Object> values) throws SqlJetException {...}
+	public void removeUser(final String name) throws SqlJetException {...}
 }
 }}}
 
