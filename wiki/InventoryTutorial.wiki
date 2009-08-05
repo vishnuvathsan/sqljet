@@ -82,7 +82,8 @@ public class InventoryDB {
 			db.runWriteTransaction(new ISqlJetTransaction() {
 
 				public Object run(SqlJetDb db) throws SqlJetException {
-					db.createTable("create table items (article integer primary key, name text not null, description blob, room int, shelf int, borrowed_from text, borrowed_to text)");
+					db.createTable("create table items (article integer primary key, "
++ "name text not null, description blob, room int, shelf int, borrowed_from text, borrowed_to text)");
 					db.createIndex("create index items_name on items (name asc)");
 					db.createIndex("create index items_name_rev on items (name desc)");
 					db.createIndex("create index items_location on items (room, shelf)");
@@ -147,7 +148,8 @@ User version is effectively a logical version of a database layout. It is writte
 
 Items table has article column declared as 'integer primary key'. This particular combination of 'integer' type and 'primary key' constraint allows SqlJet to use row ids as the column values. In other words for the items table cursor.getRowId() will always be equal to cursor.getValue("article").
 {{{
-db.createTable("create table items (article integer primary key, name text not null, description blob, room int, shelf int, borrowed_from text, borrowed_to text)");
+db.createTable("create table items (article integer primary key, "
++ "name text not null, description blob, room int, shelf int, borrowed_from text, borrowed_to text)");
 }}}
 
 Two indexes 'items_name' and 'items_name_rev' allow to sort items by name in ascending and descending order. These indexes do not require item names to be unique.
