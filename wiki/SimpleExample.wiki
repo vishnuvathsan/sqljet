@@ -1,0 +1,16 @@
+#summary Simple example on how to use SQLJet
+
+= Contents =
+
+This page provides very simple example on how to use SQLJet API to work with the database. The following operations are described:
+
+* Create new database
+* Create table and index
+* Insert records
+* Select records order by index
+* Select records matching scope or exact value
+* Delete records
+* Insert and update records
+* Drop table and index
+
+Full working source code of this example is available as part of SQLJet project in Subversion repository at [http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/simple/src/org/tmatesoft/sqljet/examples/simple/SqlJetSimpleExample.java SqlJetSimpleExample.java].
