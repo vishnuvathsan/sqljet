@@ -2,7 +2,7 @@
 
 == Contents ==
 
-This page provides very simple example on how to use SQLJet API to work with the database. The following operations are described:
+This page provides very simple example on how to use SQLJet API to work with the database of SQLite format. The following operations are described:
 
   * Create new database and configure options
   * Create table and indices
