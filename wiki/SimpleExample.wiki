@@ -318,7 +318,9 @@ This is pretty clear and more interesting is how to figure out what tables and i
       ISqlJetTableDef tableDef = db.getSchema().getTable(tableName);
       Set<ISqlJetIndexDef> tableIndices = db.getSchema().getIndexes(tableName);
       for (ISqlJetIndexDef indexDef : tableIndices) {
-         db.dropIndex(indexDef.getName());
+         if (!indexDef.isImplicit()) {
+           db.dropIndex(indexDef.getName());
+         }
       }
       db.dropTable(tableName);
     }
