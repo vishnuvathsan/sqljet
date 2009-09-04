@@ -178,7 +178,7 @@ Other examples on how rows might be selected:
     db.commit();
   }
 }}}
-in order defined by a composite index, i.e. sorted by a concatenation of a first_name and second_name field values.
+- in order defined by a composite index, i.e. sorted by a concatenation of a first_name and second_name field values.
 
 {{{
   db.beginTransaction(SqlJetTransactionMode.READ_ONLY);
@@ -188,7 +188,19 @@ in order defined by a composite index, i.e. sorted by a concatenation of a first
     db.commit();
   }
 }}}
-in order defined by the {{{rowId}}}, i.e. sorted in order rows were added to the table.
+- in order defined by the {{{rowId}}}, i.e. sorted in order rows were added to the table.
+
+{{{
+  db.beginTransaction(SqlJetTransactionMode.READ_ONLY);
+  try {
+    printRecords(table.order(DOB_INDEX).reverse());
+  } finally {
+    db.commit();
+  }
+}}}
+- from records with less value in {{{date_of_birth}}} field to those with greater values. 
+
+Note the use of {{{ISqlJetCursor.reverse()}}} method - it 'reverses' the cursor returning its mirrored copy that will iterate rows in the opposite order. 'Reversed' cursor wraps original cursor, so that later changes its position when former is iterated. It is enough to close reversed cursor to close original one as well.
 
 == Lookup records matching scope or exact value ==
 
