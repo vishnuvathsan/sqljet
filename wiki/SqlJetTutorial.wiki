@@ -1,4 +1,5 @@
 #summary Simple tutorial on how to use SQLJet API
+#labels Tutorial,Featured
 
 == Contents ==
 
