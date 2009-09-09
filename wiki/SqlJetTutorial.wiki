@@ -12,7 +12,7 @@ This page provides very simple tutorial on how to use SQLJet API to work with th
   * Update and delete records
   * Drop table and index
 
-Full working source code of this example is available as part of SQLJet project in Subversion repository at [http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/simple/src/org/tmatesoft/sqljet/examples/tutorial/Tutorial.java SqlJetSimpleExample.java].
+Full working source code of this example is available as part of SQLJet project in Subversion repository at [http://svn.sqljet.com/repos/sqljet/trunk/sqljet-examples/simple/src/org/tmatesoft/sqljet/examples/tutorial/Tutorial.java Tutorial.java].
 
 == Create new database ==
 
