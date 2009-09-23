@@ -64,3 +64,49 @@ sandbox-client-benchmarks:
     [junit] Testcase: directByteUnsigned took 95.897 sec
     [junit] Testcase: directIntUnsigned took 132.454 sec
 }}}
+
+* JDK 1.5.0_15 (32 bit), Windows Vista 64-bit:
+
+{{{
+sandbox-server-benchmarks:
+    [junit] Testsuite: org.tmatesoft.sqljet.sandbox.memory.MemoryBuffersBenchmarks
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 904.684 sec
+    [junit] 
+    [junit] Testcase: arrayByte took 40.37 sec
+    [junit] Testcase: arrayInt took 42.654 sec
+    [junit] Testcase: arrayLong took 83.939 sec
+    [junit] Testcase: arrayByteUnsigned took 35.649 sec
+    [junit] Testcase: arrayIntUnsigned took 39.239 sec
+    [junit] Testcase: bufferByte took 22.596 sec
+    [junit] Testcase: bufferInt took 54.389 sec
+    [junit] Testcase: bufferLong took 150.572 sec
+    [junit] Testcase: bufferByteUnsigned took 36.605 sec
+    [junit] Testcase: bufferIntUnsigned took 34.788 sec
+    [junit] Testcase: directByte took 51.85 sec
+    [junit] Testcase: directInt took 64.105 sec
+    [junit] Testcase: directLong took 108.248 sec
+    [junit] Testcase: directByteUnsigned took 83.588 sec
+    [junit] Testcase: directIntUnsigned took 56.061 sec
+}}}
+
+{{{
+sandbox-client-benchmarks:
+    [junit] Testsuite: org.tmatesoft.sqljet.sandbox.memory.MemoryBuffersBenchmarks
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 2,102.869 sec
+    [junit] 
+    [junit] Testcase: arrayByte took 79.171 sec
+    [junit] Testcase: arrayInt took 104.373 sec
+    [junit] Testcase: arrayLong took 198.291 sec
+    [junit] Testcase: arrayByteUnsigned took 94.673 sec
+    [junit] Testcase: arrayIntUnsigned took 127.609 sec
+    [junit] Testcase: bufferByte took 82.948 sec
+    [junit] Testcase: bufferInt took 139.305 sec
+    [junit] Testcase: bufferLong took 238.899 sec
+    [junit] Testcase: bufferByteUnsigned took 99.98 sec
+    [junit] Testcase: bufferIntUnsigned took 177.274 sec
+    [junit] Testcase: directByte took 95.12 sec
+    [junit] Testcase: directInt took 156.846 sec
+    [junit] Testcase: directLong took 207.542 sec
+    [junit] Testcase: directByteUnsigned took 117.974 sec
+    [junit] Testcase: directIntUnsigned took 182.833 sec
+}}}
