@@ -5,6 +5,23 @@
 
 * JDK 1.6.0_10 (32 bit), Windows Vista 64-bit:
 {{{
+[echoproperties] #Ant properties
+[echoproperties] #Wed Sep 23 22:27:30 CEST 2009
+[echoproperties] os.arch=x86
+[echoproperties] os.name=Windows Vista
+[echoproperties] os.version=6.0
+[echoproperties] #Ant properties
+[echoproperties] #Wed Sep 23 22:27:30 CEST 2009
+[echoproperties] java.vm.info=mixed mode, sharing
+[echoproperties] java.vm.name=Java HotSpot(TM) Client VM
+[echoproperties] java.vm.specification.name=Java Virtual Machine Specification
+[echoproperties] java.vm.specification.vendor=Sun Microsystems Inc.
+[echoproperties] java.vm.specification.version=1.0
+[echoproperties] java.vm.vendor=Sun Microsystems Inc.
+[echoproperties] java.vm.version=11.0-b12
+}}}
+
+{{{
 sandbox-server-benchmarks:
     [junit] Testsuite: org.tmatesoft.sqljet.sandbox.memory.MemoryBuffersBenchmarks
     [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 551.876 sec
