@@ -32,47 +32,50 @@ benchmarks:
 
 }}}
 
-*SQLJet 1.0.1 beta (trunk, r622)*
+*SQLJet 1.0.0.blocal (trunk)*
 
 {{{
-     [echo] SQLJet
+
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 15,35 sec
-    [junit] Testcase: clear took 0,211 sec
-    [junit] Testcase: nothing took 0,015 sec
-    [junit] Testcase: selectAll took 0,263 sec
-    [junit] Testcase: updateAll took 1,261 sec
-    [junit] Testcase: deleteAll took 0,408 sec
-    [junit] Testcase: insertRandoms took 1,775 sec
-    [junit] Testcase: locate took 1,579 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 10,502 sec
+    [junit] Testcase: clear took 0,266 sec
+    [junit] Testcase: nothing took 0,016 sec
+    [junit] Testcase: selectAll took 0,293 sec
+    [junit] Testcase: updateAll took 1,397 sec
+    [junit] Testcase: deleteAll took 0,333 sec
+    [junit] Testcase: insertRandoms took 1,664 sec
+    [junit] Testcase: locate took 1,998 sec
+
 }}}
 
 *[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native)*
 
-{{{
-     [echo] SQLite-native
+{{{			
+
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 16,323 sec
-    [junit] Testcase: clear took 0,098 sec
-    [junit] Testcase: nothing took 0,006 sec
-    [junit] Testcase: selectAll took 0,143 sec
-    [junit] Testcase: updateAll took 0,365 sec
-    [junit] Testcase: deleteAll took 0,082 sec
-    [junit] Testcase: insertRandoms took 0,829 sec
-    [junit] Testcase: locate took 6,112 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 10,123 sec
+    [junit] Testcase: clear took 0,175 sec
+    [junit] Testcase: nothing took 0,007 sec
+    [junit] Testcase: selectAll took 0,218 sec
+    [junit] Testcase: updateAll took 0,576 sec
+    [junit] Testcase: deleteAll took 0,1 sec
+    [junit] Testcase: insertRandoms took 0,955 sec
+    [junit] Testcase: locate took 6,489 sec
+
 }}}
 
-*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (nestedVM)*
+*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (NestedVM)*
 
-{{{
-     [echo] SQLite-nestedVM
+{{{			
+
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 119,385 sec
-    [junit] Testcase: clear took 0,543 sec
-    [junit] Testcase: nothing took 0,012 sec
-    [junit] Testcase: selectAll took 2,611 sec
-    [junit] Testcase: updateAll took 3,66 sec
-    [junit] Testcase: deleteAll took 0,842 sec
-    [junit] Testcase: insertRandoms took 4,916 sec
-    [junit] Testcase: locate took 41,936 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 76,59 sec
+    [junit] Testcase: clear took 0,601 sec
+    [junit] Testcase: nothing took 0,016 sec
+    [junit] Testcase: selectAll took 2,858 sec
+    [junit] Testcase: updateAll took 4,188 sec
+    [junit] Testcase: deleteAll took 0,947 sec
+    [junit] Testcase: insertRandoms took 5,688 sec
+    [junit] Testcase: locate took 48,223 sec
+
 }}}
