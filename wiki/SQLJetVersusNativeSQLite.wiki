@@ -28,41 +28,40 @@ JDK 1.6.0_14 -server, Windows Vista 32
 *SQLJet 1.0.1 beta (trunk, r622)*
 
 {{{
-    [echo] SQLJet
+     [echo] SQLJet
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 13,532 sec
-    [junit] Testcase: clear took 0,764 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 13,365 sec
+    [junit] Testcase: clear took 0,754 sec
     [junit] Testcase: nothing took 0,012 sec
-    [junit] Testcase: selectAll took 1,142 sec
-    [junit] Testcase: updateAll took 2,087 sec
-    [junit] Testcase: deleteAll took 0,574 sec
-    [junit] Testcase: insertRandoms took 2,073 sec
-    [junit] Testcase: locate took 2,083 sec
-    [junit] Testcase: selectAll2 took 0,244 sec
-    [junit] Testcase: updateAll2 took 0,972 sec
-    [junit] Testcase: deleteAll2 took 0,251 sec
-    [junit] Testcase: insertRandoms2 took 1,386 sec
-    [junit] Testcase: clear2 took 0,181 sec
-    [junit] Testcase: locate2 took 1,615 sec
+    [junit] Testcase: selectAll took 1,134 sec
+    [junit] Testcase: updateAll took 2,08 sec
+    [junit] Testcase: deleteAll took 0,493 sec
+    [junit] Testcase: insertRandoms took 2,127 sec
+    [junit] Testcase: locate took 2,061 sec
+    [junit] Testcase: selectAll_ took 0,242 sec
+    [junit] Testcase: updateAll_ took 0,986 sec
+    [junit] Testcase: deleteAll_ took 0,234 sec
+    [junit] Testcase: insertRandoms_ took 1,352 sec
+    [junit] Testcase: clear_ took 0,168 sec
+    [junit] Testcase: locate_ took 1,568 sec
 }}}
 
 *[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native)*
 
 {{{
-    [echo] SQLite native
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 16,76 sec
-    [junit] Testcase: clear took 0,386 sec
-    [junit] Testcase: nothing took 0,006 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 15,523 sec
+    [junit] Testcase: clear took 0,359 sec
+    [junit] Testcase: nothing took 0,007 sec
     [junit] Testcase: selectAll took 0,224 sec
-    [junit] Testcase: updateAll took 0,442 sec
-    [junit] Testcase: deleteAll took 0,268 sec
-    [junit] Testcase: insertRandoms took 0,856 sec
-    [junit] Testcase: locate took 6,239 sec
-    [junit] Testcase: selectAll2 took 0,235 sec
-    [junit] Testcase: updateAll2 took 0,411 sec
-    [junit] Testcase: deleteAll2 took 0,079 sec
-    [junit] Testcase: insertRandoms2 took 1,19 sec
-    [junit] Testcase: clear2 took 0,16 sec
-    [junit] Testcase: locate2 took 6,109 sec
+    [junit] Testcase: updateAll took 0,354 sec
+    [junit] Testcase: deleteAll took 0,081 sec
+    [junit] Testcase: insertRandoms took 0,782 sec
+    [junit] Testcase: locate took 6,113 sec
+    [junit] Testcase: selectAll_ took 0,158 sec
+    [junit] Testcase: updateAll_ took 0,356 sec
+    [junit] Testcase: deleteAll_ took 0,077 sec
+    [junit] Testcase: insertRandoms_ took 0,784 sec
+    [junit] Testcase: clear_ took 0,095 sec
+    [junit] Testcase: locate_ took 5,992 sec
 }}}
