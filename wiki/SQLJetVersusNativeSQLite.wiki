@@ -11,39 +11,39 @@ The question of sort "What slow is SQLJet against native SQLite?".
 {{{
     [echo] SQLJet
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 15,407 sec
-    [junit] Testcase: clear took 0,956 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 13,532 sec
+    [junit] Testcase: clear took 0,764 sec
     [junit] Testcase: nothing took 0,012 sec
-    [junit] Testcase: selectAll took 1,277 sec
-    [junit] Testcase: updateAll took 2,529 sec
-    [junit] Testcase: deleteAll took 0,624 sec
-    [junit] Testcase: insertRandoms took 2,519 sec
-    [junit] Testcase: locate took 2,212 sec
-    [junit] Testcase: selectAll2 took 0,26 sec
-    [junit] Testcase: updateAll2 took 1,047 sec
-    [junit] Testcase: deleteAll2 took 0,34 sec
-    [junit] Testcase: insertRandoms2 took 1,537 sec
-    [junit] Testcase: clear2 took 0,215 sec
-    [junit] Testcase: locate2 took 1,709 sec
+    [junit] Testcase: selectAll took 1,142 sec
+    [junit] Testcase: updateAll took 2,087 sec
+    [junit] Testcase: deleteAll took 0,574 sec
+    [junit] Testcase: insertRandoms took 2,073 sec
+    [junit] Testcase: locate took 2,083 sec
+    [junit] Testcase: selectAll2 took 0,244 sec
+    [junit] Testcase: updateAll2 took 0,972 sec
+    [junit] Testcase: deleteAll2 took 0,251 sec
+    [junit] Testcase: insertRandoms2 took 1,386 sec
+    [junit] Testcase: clear2 took 0,181 sec
+    [junit] Testcase: locate2 took 1,615 sec
 }}}
 
 *[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native) / JDK 1.6 -server  / Windows Vista 32*
 
 {{{
-    [echo] Native
+    [echo] SQLite native
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 17,418 sec
-    [junit] Testcase: clear took 0,47 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 16,76 sec
+    [junit] Testcase: clear took 0,386 sec
     [junit] Testcase: nothing took 0,006 sec
-    [junit] Testcase: selectAll took 0,255 sec
-    [junit] Testcase: updateAll took 0,389 sec
-    [junit] Testcase: deleteAll took 0,093 sec
-    [junit] Testcase: insertRandoms took 0,879 sec
-    [junit] Testcase: locate took 6,599 sec
-    [junit] Testcase: selectAll2 took 0,196 sec
-    [junit] Testcase: updateAll2 took 0,372 sec
-    [junit] Testcase: deleteAll2 took 0,088 sec
-    [junit] Testcase: insertRandoms2 took 1,16 sec
-    [junit] Testcase: clear2 took 0,129 sec
-    [junit] Testcase: locate2 took 6,587 sec
+    [junit] Testcase: selectAll took 0,224 sec
+    [junit] Testcase: updateAll took 0,442 sec
+    [junit] Testcase: deleteAll took 0,268 sec
+    [junit] Testcase: insertRandoms took 0,856 sec
+    [junit] Testcase: locate took 6,239 sec
+    [junit] Testcase: selectAll2 took 0,235 sec
+    [junit] Testcase: updateAll2 took 0,411 sec
+    [junit] Testcase: deleteAll2 took 0,079 sec
+    [junit] Testcase: insertRandoms2 took 1,19 sec
+    [junit] Testcase: clear2 took 0,16 sec
+    [junit] Testcase: locate2 took 6,109 sec
 }}}
