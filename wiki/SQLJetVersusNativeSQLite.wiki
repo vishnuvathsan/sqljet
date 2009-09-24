@@ -33,3 +33,43 @@ The question of sort "What slow is SQLJet against native SQLite?".
 [junit] Testcase: insertRandoms took 1,114 sec
 [junit] Testcase: locate took 6,462 sec
 }}}
+
+*SQLJet 1.0.1 beta (trunk, r622) / JDK 1.6 -server / Windows Vista 32*
+
+{{{
+    [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 15,925 sec
+    [junit] Testcase: clear took 1,584 sec
+    [junit] Testcase: nothing took 0,013 sec
+    [junit] Testcase: selectAll took 1,034 sec
+    [junit] Testcase: updateAll took 2,031 sec
+    [junit] Testcase: deleteAll took 0,913 sec
+    [junit] Testcase: insertRandoms took 2,355 sec
+    [junit] Testcase: locate took 2,166 sec
+    [junit] Testcase: selectAll2 took 0,228 sec
+    [junit] Testcase: updateAll2 took 1,264 sec
+    [junit] Testcase: deleteAll2 took 0,255 sec
+    [junit] Testcase: insertRandoms2 took 1,483 sec
+    [junit] Testcase: clear2 took 0,209 sec
+    [junit] Testcase: locate2 took 1,965 sec
+}}}
+
+*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native) / JDK 1.6 -server  / Windows Vista 32*
+
+{{{
+    [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 19,342 sec
+    [junit] Testcase: clear took 0,632 sec
+    [junit] Testcase: nothing took 0,015 sec
+    [junit] Testcase: selectAll took 0,275 sec
+    [junit] Testcase: updateAll took 0,397 sec
+    [junit] Testcase: deleteAll took 0,106 sec
+    [junit] Testcase: insertRandoms took 1,086 sec
+    [junit] Testcase: locate took 7,086 sec
+    [junit] Testcase: selectAll2 took 0,176 sec
+    [junit] Testcase: updateAll2 took 0,433 sec
+    [junit] Testcase: deleteAll2 took 0,099 sec
+    [junit] Testcase: insertRandoms2 took 0,78 sec
+    [junit] Testcase: clear2 took 0,116 sec
+    [junit] Testcase: locate2 took 7,953 sec
+}}}
