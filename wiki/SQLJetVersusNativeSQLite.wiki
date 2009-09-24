@@ -1,0 +1,41 @@
+#Comparability performance of SQLJet to SQLite.
+
+= Introduction =
+
+The question of sort "What slow is SQLJet against native SQLite?".
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+
+= Benchmarks =
+
+*SQLJet 1.0.1 beta (trunk, r622) / JDK 1.6 -server / Windows Vista 32*
+
+[junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
+[junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 10,37 sec
+[junit] Testcase: clear took 1,002 sec
+[junit] Testcase: nothing took 0,013 sec
+[junit] Testcase: selectAll took 1,29 sec
+[junit] Testcase: updateAll took 2,455 sec
+[junit] Testcase: deleteAll took 0,62 sec
+[junit] Testcase: insertRandoms took 2,578 sec
+[junit] Testcase: locate took 2,206 sec
+
+
+*SQLiteJDBC v056, based on SQLite 3.6.14.2 (native mode) / JDK 1.6 -server  / Windows Vista 32*
+
+[junit] Testsuite: org.tmatesoft.sqljet.benchmarks.NativeSQLiteJDBCBenchmark
+[junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 9,297 sec
+[junit] Testcase: clear took 0,539 sec
+[junit] Testcase: nothing took 0,006 sec
+[junit] Testcase: selectAll took 0,232 sec
+[junit] Testcase: updateAll took 0,651 sec
+[junit] Testcase: deleteAll took 0,132 sec
+[junit] Testcase: insertRandoms took 1,114 sec
+[junit] Testcase: locate took 6,462 sec
