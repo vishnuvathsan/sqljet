@@ -20,7 +20,7 @@ The question of sort "What slow is SQLJet against native SQLite?".
 [junit] Testcase: locate took 2,206 sec
 }}}
 
-*[http://www.zentus.com/sqlitejdbc/] SQLiteJDBC v056, based on SQLite 3.6.14.2 (native mode) / JDK 1.6 -server  / Windows Vista 32*
+*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056, based on SQLite 3.6.14.2 (native mode) / JDK 1.6 -server  / Windows Vista 32*
 
 {{{
 [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.NativeSQLiteJDBCBenchmark
