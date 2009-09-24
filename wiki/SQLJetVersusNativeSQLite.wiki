@@ -8,6 +8,23 @@ The question of sort "What slow is SQLJet against native SQLite?".
 
 JDK 1.6.0_14 -server, Windows Vista 32
 
+{{{
+[echoproperties] #Ant properties
+[echoproperties] #Thu Sep 24 07:26:00 EEST 2009
+[echoproperties] os.arch=x86
+[echoproperties] os.name=Windows Vista
+[echoproperties] os.version=6.0
+[echoproperties] #Ant properties
+[echoproperties] #Thu Sep 24 07:26:00 EEST 2009
+[echoproperties] java.vm.info=mixed mode, sharing
+[echoproperties] java.vm.name=Java HotSpot(TM) Client VM
+[echoproperties] java.vm.specification.name=Java Virtual Machine Specification
+[echoproperties] java.vm.specification.vendor=Sun Microsystems Inc.
+[echoproperties] java.vm.specification.version=1.0
+[echoproperties] java.vm.vendor=Sun Microsystems Inc.
+[echoproperties] java.vm.version=14.0-b16
+}}}
+
 *SQLJet 1.0.1 beta (trunk, r622)*
 
 {{{
