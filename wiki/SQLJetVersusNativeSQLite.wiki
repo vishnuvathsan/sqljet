@@ -35,17 +35,16 @@ benchmarks:
 *SQLJet 1.0.1 beta (trunk, r622)*
 
 {{{
-
      [echo] SQLJet
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 14,373 sec
-    [junit] Testcase: clear took 0,168 sec
-    [junit] Testcase: nothing took 0,012 sec
-    [junit] Testcase: selectAll took 0,273 sec
-    [junit] Testcase: updateAll took 1,121 sec
-    [junit] Testcase: deleteAll took 0,246 sec
-    [junit] Testcase: insertRandoms took 1,382 sec
-    [junit] Testcase: locate took 1,572 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 15,35 sec
+    [junit] Testcase: clear took 0,211 sec
+    [junit] Testcase: nothing took 0,015 sec
+    [junit] Testcase: selectAll took 0,263 sec
+    [junit] Testcase: updateAll took 1,261 sec
+    [junit] Testcase: deleteAll took 0,408 sec
+    [junit] Testcase: insertRandoms took 1,775 sec
+    [junit] Testcase: locate took 1,579 sec
 }}}
 
 *[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native)*
@@ -53,15 +52,14 @@ benchmarks:
 {{{
      [echo] SQLite-native
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 8,504 sec
-    [junit] Testcase: clear took 0,521 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 16,323 sec
+    [junit] Testcase: clear took 0,098 sec
     [junit] Testcase: nothing took 0,006 sec
-    [junit] Testcase: selectAll took 0,228 sec
-    [junit] Testcase: updateAll took 0,386 sec
-    [junit] Testcase: deleteAll took 0,096 sec
-    [junit] Testcase: insertRandoms took 0,956 sec
-    [junit] Testcase: locate took 6,143 sec
-
+    [junit] Testcase: selectAll took 0,143 sec
+    [junit] Testcase: updateAll took 0,365 sec
+    [junit] Testcase: deleteAll took 0,082 sec
+    [junit] Testcase: insertRandoms took 0,829 sec
+    [junit] Testcase: locate took 6,112 sec
 }}}
 
 *[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (nestedVM)*
@@ -69,12 +67,12 @@ benchmarks:
 {{{
      [echo] SQLite-nestedVM
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 64,149 sec
-    [junit] Testcase: clear took 2,184 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 119,385 sec
+    [junit] Testcase: clear took 0,543 sec
     [junit] Testcase: nothing took 0,012 sec
-    [junit] Testcase: selectAll took 4,238 sec
-    [junit] Testcase: updateAll took 5,245 sec
-    [junit] Testcase: deleteAll took 1,524 sec
-    [junit] Testcase: insertRandoms took 6,465 sec
-    [junit] Testcase: locate took 44,353 sec
+    [junit] Testcase: selectAll took 2,611 sec
+    [junit] Testcase: updateAll took 3,66 sec
+    [junit] Testcase: deleteAll took 0,842 sec
+    [junit] Testcase: insertRandoms took 4,916 sec
+    [junit] Testcase: locate took 41,936 sec
 }}}
