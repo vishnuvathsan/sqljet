@@ -17,6 +17,7 @@ Add your content here.  Format your content with:
 
 *SQLJet 1.0.1 beta (trunk, r622) / JDK 1.6 -server / Windows Vista 32*
 
+{{{
 [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
 [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 10,37 sec
 [junit] Testcase: clear took 1,002 sec
@@ -26,10 +27,11 @@ Add your content here.  Format your content with:
 [junit] Testcase: deleteAll took 0,62 sec
 [junit] Testcase: insertRandoms took 2,578 sec
 [junit] Testcase: locate took 2,206 sec
-
+}}}
 
 *SQLiteJDBC v056, based on SQLite 3.6.14.2 (native mode) / JDK 1.6 -server  / Windows Vista 32*
 
+{{{
 [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.NativeSQLiteJDBCBenchmark
 [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 9,297 sec
 [junit] Testcase: clear took 0,539 sec
@@ -39,3 +41,4 @@ Add your content here.  Format your content with:
 [junit] Testcase: deleteAll took 0,132 sec
 [junit] Testcase: insertRandoms took 1,114 sec
 [junit] Testcase: locate took 6,462 sec
+}}}
