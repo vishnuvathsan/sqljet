@@ -14,7 +14,6 @@ ant benchmarks
 
 {{{
 
-benchmarks:
 [echoproperties] #Ant properties
 [echoproperties] #Thu Sep 24 21:16:24 EEST 2009
 [echoproperties] os.arch=x86
