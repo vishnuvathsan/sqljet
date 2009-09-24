@@ -1,4 +1,4 @@
-#Comparability performance of SQLJet to SQLite.
+#summary Comparability performance of SQLJet to SQLite.
 
 = Introduction =
 
