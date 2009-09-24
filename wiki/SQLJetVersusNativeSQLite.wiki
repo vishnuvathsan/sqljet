@@ -10,7 +10,7 @@ The question of sort "What slow is SQLJet against native SQLite?".
 ant benchmarks
 }}}
 
-JDK 1.6.0_14 -server, Windows Vista 32
+*JDK 1.6.0_14 -server, Windows Vista 32*
 
 {{{
 
