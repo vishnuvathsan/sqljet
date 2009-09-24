@@ -9,107 +9,41 @@ The question of sort "What slow is SQLJet against native SQLite?".
 *SQLJet 1.0.1 beta (trunk, r622) / JDK 1.6 -server / Windows Vista 32*
 
 {{{
-[junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-[junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 10,37 sec
-[junit] Testcase: clear took 1,002 sec
-[junit] Testcase: nothing took 0,013 sec
-[junit] Testcase: selectAll took 1,29 sec
-[junit] Testcase: updateAll took 2,455 sec
-[junit] Testcase: deleteAll took 0,62 sec
-[junit] Testcase: insertRandoms took 2,578 sec
-[junit] Testcase: locate took 2,206 sec
-}}}
-
-*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native) / JDK 1.6 -server  / Windows Vista 32*
-
-{{{
-[junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-[junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 9,297 sec
-[junit] Testcase: clear took 0,539 sec
-[junit] Testcase: nothing took 0,006 sec
-[junit] Testcase: selectAll took 0,232 sec
-[junit] Testcase: updateAll took 0,651 sec
-[junit] Testcase: deleteAll took 0,132 sec
-[junit] Testcase: insertRandoms took 1,114 sec
-[junit] Testcase: locate took 6,462 sec
-}}}
-
-*SQLJet 1.0.1 beta (trunk, r622) / JDK 1.6 -server / Windows Vista 32*
-
-{{{
+    [echo] SQLJet
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 15,925 sec
-    [junit] Testcase: clear took 1,584 sec
-    [junit] Testcase: nothing took 0,013 sec
-    [junit] Testcase: selectAll took 1,034 sec
-    [junit] Testcase: updateAll took 2,031 sec
-    [junit] Testcase: deleteAll took 0,913 sec
-    [junit] Testcase: insertRandoms took 2,355 sec
-    [junit] Testcase: locate took 2,166 sec
-    [junit] Testcase: selectAll2 took 0,228 sec
-    [junit] Testcase: updateAll2 took 1,264 sec
-    [junit] Testcase: deleteAll2 took 0,255 sec
-    [junit] Testcase: insertRandoms2 took 1,483 sec
-    [junit] Testcase: clear2 took 0,209 sec
-    [junit] Testcase: locate2 took 1,965 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 15,407 sec
+    [junit] Testcase: clear took 0,956 sec
+    [junit] Testcase: nothing took 0,012 sec
+    [junit] Testcase: selectAll took 1,277 sec
+    [junit] Testcase: updateAll took 2,529 sec
+    [junit] Testcase: deleteAll took 0,624 sec
+    [junit] Testcase: insertRandoms took 2,519 sec
+    [junit] Testcase: locate took 2,212 sec
+    [junit] Testcase: selectAll2 took 0,26 sec
+    [junit] Testcase: updateAll2 took 1,047 sec
+    [junit] Testcase: deleteAll2 took 0,34 sec
+    [junit] Testcase: insertRandoms2 took 1,537 sec
+    [junit] Testcase: clear2 took 0,215 sec
+    [junit] Testcase: locate2 took 1,709 sec
 }}}
 
 *[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native) / JDK 1.6 -server  / Windows Vista 32*
 
 {{{
+    [echo] Native
     [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 19,342 sec
-    [junit] Testcase: clear took 0,632 sec
-    [junit] Testcase: nothing took 0,015 sec
-    [junit] Testcase: selectAll took 0,275 sec
-    [junit] Testcase: updateAll took 0,397 sec
-    [junit] Testcase: deleteAll took 0,106 sec
-    [junit] Testcase: insertRandoms took 1,086 sec
-    [junit] Testcase: locate took 7,086 sec
-    [junit] Testcase: selectAll2 took 0,176 sec
-    [junit] Testcase: updateAll2 took 0,433 sec
-    [junit] Testcase: deleteAll2 took 0,099 sec
-    [junit] Testcase: insertRandoms2 took 0,78 sec
-    [junit] Testcase: clear2 took 0,116 sec
-    [junit] Testcase: locate2 took 7,953 sec
-}}}
-
-*SQLJet 1.0.1 beta (trunk, r622) / JDK 1.6 -server / Windows Vista 32*
-
-{{{
-    [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 15,672 sec
-    [junit] Testcase: clear took 0,862 sec
-    [junit] Testcase: nothing took 0,017 sec
-    [junit] Testcase: selectAll took 1,338 sec
-    [junit] Testcase: updateAll took 2,42 sec
-    [junit] Testcase: deleteAll took 0,71 sec
-    [junit] Testcase: insertRandoms took 2,559 sec
-    [junit] Testcase: locate took 2,397 sec
-    [junit] Testcase: selectAll2 took 0,289 sec
-    [junit] Testcase: updateAll2 took 1,178 sec
-    [junit] Testcase: deleteAll2 took 0,332 sec
-    [junit] Testcase: insertRandoms2 took 1,464 sec
-    [junit] Testcase: clear2 took 0,241 sec
-    [junit] Testcase: locate2 took 1,702 sec
-}}}
-
-*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native) / JDK 1.6 -server  / Windows Vista 32*
-
-{{{
-    [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SQLiteBenchmark
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 18,137 sec
-    [junit] Testcase: clear took 0,538 sec
-    [junit] Testcase: nothing took 0,007 sec
-    [junit] Testcase: selectAll took 0,286 sec
-    [junit] Testcase: updateAll took 0,393 sec
-    [junit] Testcase: deleteAll took 0,168 sec
-    [junit] Testcase: insertRandoms took 1,092 sec
-    [junit] Testcase: locate took 6,927 sec
-    [junit] Testcase: selectAll2 took 0,171 sec
-    [junit] Testcase: updateAll2 took 0,451 sec
-    [junit] Testcase: deleteAll2 took 0,095 sec
-    [junit] Testcase: insertRandoms2 took 0,979 sec
-    [junit] Testcase: clear2 took 0,128 sec
-    [junit] Testcase: locate2 took 6,753 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 17,418 sec
+    [junit] Testcase: clear took 0,47 sec
+    [junit] Testcase: nothing took 0,006 sec
+    [junit] Testcase: selectAll took 0,255 sec
+    [junit] Testcase: updateAll took 0,389 sec
+    [junit] Testcase: deleteAll took 0,093 sec
+    [junit] Testcase: insertRandoms took 0,879 sec
+    [junit] Testcase: locate took 6,599 sec
+    [junit] Testcase: selectAll2 took 0,196 sec
+    [junit] Testcase: updateAll2 took 0,372 sec
+    [junit] Testcase: deleteAll2 took 0,088 sec
+    [junit] Testcase: insertRandoms2 took 1,16 sec
+    [junit] Testcase: clear2 took 0,129 sec
+    [junit] Testcase: locate2 took 6,587 sec
 }}}
