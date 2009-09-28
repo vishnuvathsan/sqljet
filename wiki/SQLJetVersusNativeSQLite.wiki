@@ -1,18 +1,21 @@
-#summary Comparability performance of SQLJet to SQLite.
-
-= Introduction =
-
-The question of sort "What slow is SQLJet against native SQLite?".
+#summary Performance comparison of [http://sqljet.com/ SQLJet] to [http://sqlite.org SQLite].
 
 = Benchmarks =
 
-{{{
-ant benchmarks
-}}}
+Version 1.0.0 of [http://sqljet.com/ SQLJet] is compared to SQLiteJDBC (v056 NestedVM and v3.6.14.2 of native SQLite through JNI).
 
-*JDK 1.6.0_14 -server, Windows Vista 32*
+Summary (from fastest to slowest):
+
+|| SQLLite 3.6.14 || 10,123 sec ||
+|| SQLJet 1.0.0 || 10,502 sec ||
+|| NestedVM v056 || 76,59 sec ||
+
+= Benchmarks =
+
+* Java platform*
 
 {{{
+JDK 1.6.0_14 -server, Windows Vista 32
 
 [echoproperties] #Ant properties
 [echoproperties] #Thu Sep 24 21:16:24 EEST 2009
@@ -31,7 +34,7 @@ ant benchmarks
 
 }}}
 
-*SQLJet 1.0.0.blocal (trunk)*
+*[http://sqljet.com/ SQLJet] 1.0.0.blocal (trunk)*
 
 {{{
 
