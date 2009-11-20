@@ -34,7 +34,7 @@ JDK 1.6.0_14 -server, Windows Vista 32
 
 }}}
 
-*[http://sqljet.com/ SQLJet] 1.0.0.blocal (trunk)*
+*[http://sqljet.com/ SQLJet] 1.0.0.blocal (trunk) -server*
 
 {{{
 
@@ -50,7 +50,24 @@ JDK 1.6.0_14 -server, Windows Vista 32
 
 }}}
 
-*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native)*
+      
+*[http://sqljet.com/ SQLJet] 1.1.0.blocal (trunk) -server*
+      			
+{{{
+      		
+    [junit] Testsuite: org.tmatesoft.sqljet.benchmarks.SqlJetBenchmark
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 8,287 sec
+    [junit] Testcase: clear took 0,174 sec
+    [junit] Testcase: nothing took 0,01 sec
+    [junit] Testcase: selectAll took 0,247 sec
+    [junit] Testcase: updateAll took 1,022 sec
+    [junit] Testcase: deleteAll took 0,209 sec
+    [junit] Testcase: insertRandoms took 1,387 sec
+    [junit] Testcase: locate took 1,549 sec
+
+}}}
+
+*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (SQLite 3.6.14.2 native) -server*
 
 {{{			
 
@@ -66,7 +83,7 @@ JDK 1.6.0_14 -server, Windows Vista 32
 
 }}}
 
-*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (NestedVM)*
+*[http://www.zentus.com/sqlitejdbc/ SQLiteJDBC] v056 (NestedVM) -server*
 
 {{{			
 
