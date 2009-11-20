@@ -52,7 +52,7 @@ JDK 1.6.0_14 -server, Windows Vista 32
 }}}
 
       
-*[http://sqljet.com/ SQLJet] 1.1.0.blocal (trunk) -server*
+*[http://sqljet.com/ SQLJet] 1.0.1.blocal (trunk) -server*
       			
 {{{
       		
