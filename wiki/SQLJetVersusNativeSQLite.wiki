@@ -6,6 +6,7 @@ Version 1.0.0 of [http://sqljet.com/ SQLJet] is compared to SQLiteJDBC (v056 Nes
 
 Summary (from fastest to slowest):
 
+|| SQLJet 1.0.1 || 8,287 sec ||
 || SQLLite 3.6.14 || 10,123 sec ||
 || SQLJet 1.0.0 || 10,502 sec ||
 || NestedVM v056 || 76,59 sec ||
