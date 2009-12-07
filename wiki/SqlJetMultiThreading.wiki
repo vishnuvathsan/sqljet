@@ -1,0 +1,25 @@
+#summary Short description of multi-threading in SQLJet library.
+#labels Featured
+
+= Introduction =
+
+This page provides short description of multi-threading in SQLJet library. There are following approaches to use multi-threading in SQLJet:
+
+  * Use one database connection shared between multiple threads.
+  * Use private database connections in threads without synchronization.
+  * Use read-write synchronization with private database connections in threads.
+
+
+= Shared database connection =
+
+It is possible to use safely one database connection shared from multiple threads. The SQLJet database connection instance has own private mutex which is locked internally in each invocation of SQLJet API. It insures safety of multi-threaded use of SQLJet database connection. But that approach can't provide desirable performance in multi-threaded access to database because while one thread does processing of database (even just reading of data) other threads wait blocked in mutex.
+
+= Private database connections without synchronization =
+
+Each thread can have own private connection to the same database file and independently performs processing of data in base even without any synchronization. Parallel reads of data from base from different threads will not be blocked mutually. Only writes operations require exclusive access to database and inner locking protocol on file access level provides all required synchronizations between threads and even processes. 
+
+But there is one disadvantage: if database is locked by one thread/process for exclusive access then all other threads are forced to performs active polling of database lock status. It leads to inefficient use of CPU system resource. In other side that polling can't continue endlessly because it will be admitted as hangup. Therefore after some timeout if required database locking can't be got by thread (or process) then SqlJetException with BUSY error code will be thrown. It means that you should be ready to catch that exception in any time and decide how handle that situation. In common case you could just show message to user about database locked by some other process. This message can have options to retry or cancel current operation.
+
+= Private database connections with read-write synchronization =
+
+Best solution may be implemented through using read-write synchronization between threads which have own private database connections. In that case we don't waste CPU resources in active polling and reduce possibility to get BUSY error. But if we can't synchronize with other processes which can open the same database then we should be also ready to get BUSY error too.
