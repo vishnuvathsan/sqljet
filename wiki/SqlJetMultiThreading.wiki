@@ -16,7 +16,7 @@ It is possible to use safely one database connection shared from multiple thread
 
 = Private database connections without synchronization =
 
-Each thread can have own private connection to the same database file and independently performs processing of data in base even without any synchronization. Parallel reads of data from base from different threads will not be blocked mutually. Only writes operations require exclusive access to database and inner locking protocol on file access level provides all required synchronizations between threads and even processes. 
+Each thread can have own private connection to the same database file and independently performs processing of data in base even without any synchronization. Parallel reads of data from base in different threads will not be blocked mutually. Only writes operations require exclusive access to database and inner locking protocol on file access level provides all required synchronizations between threads and even processes. 
 
 But there is one disadvantage: if database is locked by one thread/process for exclusive access then all other threads are forced to performs active polling of database lock status. It leads to inefficient use of CPU system resource. In other side that polling can't continue endlessly because it will be admitted as hangup. Therefore after some timeout if required database locking can't be got by thread (or process) then SqlJetException with BUSY error code will be thrown. It means that you should be ready to catch that exception in any time and decide how handle that situation. In common case you could just show message to user about database locked by some other process. This message can have options to retry or cancel current operation.
 
