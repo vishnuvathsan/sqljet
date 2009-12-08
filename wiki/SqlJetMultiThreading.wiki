@@ -3,23 +3,32 @@
 
 = Introduction =
 
-This page provides short description of multi-threading in SQLJet library. There are following approaches to use multi-threading in SQLJet:
+This page provides short description of multi-threading support in SQLJet library. There are following ways one could use SQLJet in multi-threaded environment:
 
-  * Use one database connection shared between multiple threads.
-  * Use private database connections in threads without synchronization.
-  * Use read-write synchronization with private database connections in threads.
+  * One database connection (SqlJetDb instance) shared by multiple threads.
+  * One dedicated database connection for each thread.
+  * One dedicated database connection for each thread with synchronization.
 
+= Using one shared connection (SqlJetDb instacne)  =
 
-= Shared database connection =
+How does it work: SqlJetDb class instance has internal monitor on which all API calls are synchronized. Both read and write access is synchronized on the same object monitor.
 
-It is possible to use safely one database connection shared from multiple threads. The SQLJet database connection instance has own private mutex which is locked internally in each invocation of SQLJet API. It insures safety of multi-threaded use of SQLJet database connection. But that approach can't provide desirable performance in multi-threaded access to database because while one thread does processing of database (even just reading of data) other threads wait blocked in mutex.
+Benefits: No special code needed to enable thread-safeness.
 
-= Private database connections without synchronization =
+Disadvantages: Only one thread could work with the database in the same time. Synchronization only synchronizes threads of the same JVM process, other processes might work with the same databases not respecting synchronization rules. Poor performance because every operation is exclusive.
 
-Each thread can have own private connection to the same database file and independently performs processing of data in base even without any synchronization. Parallel reads of data from base in different threads will not be blocked mutually. Only writes operations require exclusive access to database and inner locking protocol on file access level provides all required synchronizations between threads and even processes. 
+= One connection (SqlJetDb instance) per thread =
 
-But there is one disadvantage: if database is locked by one thread/process for exclusive access then all other threads are forced to performs active polling of database lock status. It leads to inefficient use of CPU system resource. In other side that polling can't continue endlessly because it will be admitted as hangup. Therefore after some timeout if required database locking can't be got by thread (or process) then SqlJetException with BUSY error code will be thrown. It means that you should be ready to catch that exception in any time and decide how handle that situation. In common case you could just show message to user about database locked by some other process. This message can have options to retry or cancel current operation.
+How does it work: All SqlJetDb instances (those that work with the same database) shares read and write locks in file system. There could be either multiple simultaneous "readers" or single "writer" at the same time. Contrary to the first approach that uses Java object monitor, in this approach "readers" and "writers" poll lock periodically to check if read or write operation could be started.
 
-= Private database connections with read-write synchronization =
+Benefits: Multiple read operations in the same time are allowed. Locks are file system based, so synchronization covers all processes accessing database, not only Java threads of the same JVM process.
 
-Best solution may be implemented through using read-write synchronization between threads which have own private database connections. In that case we don't waste CPU resources in active polling and reduce possibility to get BUSY error. But if we can't synchronize with other processes which can open the same database then we should be also ready to get BUSY error too.
+Disadvantages: Special exceptions handling is needed - users should handle BUSY exception when lock poll time exceeds certain configurable limit. Higher CPU usage due to the lock polling.
+
+= One connection (SqlJetDb instance) per thread with synchronization =
+
+How does it work: Same as above, but additionally threads in the same JVM process are synchronized. 
+
+Benefits: Same as above, plus less lock polling within the same JVM process.
+
+Disadvantages: Same as above, but performance will degrade less.
