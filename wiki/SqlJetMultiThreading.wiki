@@ -9,7 +9,7 @@ This page provides short description of multi-threading support in SQLJet librar
   * One dedicated database connection for each thread.
   * One dedicated database connection for each thread with synchronization.
 
-= Using one shared connection (SqlJetDb instacne)  =
+= Using one shared connection (SqlJetDb instanсe)  =
 
 How does it work: SqlJetDb class instance has internal monitor on which all API calls are synchronized. Both read and write access is synchronized on the same object monitor.
 
