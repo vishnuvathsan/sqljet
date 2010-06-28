@@ -1,4 +1,4 @@
-=In-Memory DataBase with SQLJet=
+=In-Memory Data Base with SQLJet=
 
 There is sample code:
 
